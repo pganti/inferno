@@ -1,0 +1,8 @@
+./out/host/linux-x86/bin/simg2img out/target/product/crespo/userdata.img ../userdata.img.raw
+sudo mount -t ext4 -o loop userdata.img.raw /mnt/
+sudo cp -r /data/inferno /mnt/inferno
+sudo ./out/host/linux-x86/bin/make_ext4fs -s -l 1G -a userdata ../userdata.img.new /mnt/
+
+# install it
+adb reboot-recovery
+fastboot flash userdata ../userdata.img.new 

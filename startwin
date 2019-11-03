@@ -1,0 +1,5 @@
+#!/dis/sh
+
+load std
+wm/keyboard &
+wm/toolbar &
